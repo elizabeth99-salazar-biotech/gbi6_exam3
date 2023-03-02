@@ -1,0 +1,52 @@
+---
+title: "Exam3bioinfor"
+author: "Salazar Elizabeth"
+format: html
+editor: visual
+---
+
+```{r}
+#Pregunta 1
+if (!require("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install(version = "3.16")
+```
+
+```{r}
+library(palmerpenguins)
+library(ggplot2)
+library(ggpmisc)
+#Respuesta pregunta 1
+#En la imagen A nos mustra uan garfica de dispersion lineal del largo y hancho de los picos separados por especie y por isla.
+#En la imageb B nos muestra una grafica de dispersion de la longitud del pico por cada especie de pinguino
+#La imagen C nos muestra una grafica con el ancho del pico en el eje y, y cada especie en el eje x
+
+
+#Respuesta pregunta 1.1
+# Literal p4
+
+p4 <- ggplot(penguins, aes(x = body_mass_g, y = flipper_length_mm, color = sex)) +
+  geom_point(alpha = 0.6) +
+  geom_smooth(method = "lm", formula = y ~ x, se = FALSE, na.rm = TRUE) +
+  scale_color_manual(values = c("#FFD700", "#808080")) +
+  facet_grid(rows = vars(sex), cols = vars(island)) +
+  labs(title = "Relación m. corporal y longitud de aleta",
+       x = "M. corporal (g)", y = "Longitud de aleta (mm)",
+       color = "Sexo") +
+  theme_bw() +
+  theme(text = element_text(size = 8), legend.position = "bottom") +
+  stat_poly_eq(formula = y ~ x, aes(label = paste(stat(eq.label), stat(adj.rr.label), sep = "*\", \"*")),
+               label.x = "right", label.y = "top", size = 3)
+
+```
+
+```{r}
+#Literal p5
+
+```
+
+```{r}
+#Respuesta pregunta 2
+#Literal 2.1
+#
+```
