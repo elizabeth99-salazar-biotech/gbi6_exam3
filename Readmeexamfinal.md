@@ -12,3 +12,4 @@ Tipo de sistema: Sistema operativo de 64 bits, procesador x64
 
 Tipo de sistema: sistema operativode 64bits
 Rstudio 4.2.2
+.
